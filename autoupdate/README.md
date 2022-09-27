@@ -11,8 +11,12 @@ Dapat digunakan sebagai script cek update otomatis jika menggunakan cronjob
 wget -O /opt/onesender/autoupdate.sh https://raw.githubusercontent.com/onesender/scripts/main/autoupdate/autoupdate.sh
 chmod +x /opt/onesender/autoupdate.sh
 ```
+2. Sesuaikan jumlah instalasi OneSender yang ingin diupdate. Jika Anda install,umpamanya, 5 aplikasi silahkan edit dahulu file `autoupdate.sh`
+```
+JUMLAH_ONESENDER=5
+```
 
-2. Jalankan command dengan akses root
+3. Jalankan command dengan akses root
 ```bash
 bash /opt/onesender/autoupdate.sh
 ```
