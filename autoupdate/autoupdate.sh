@@ -29,11 +29,15 @@ if [ "$LOCAL_VERSION" != "$VERSION" ]; then
 		START=1
 		for (( c=$START; c<=$JUMLAH_ONESENDER; c++ ))
 		do
-			echo "config_${c}.yaml"
-			sudo systemctl stop "onesender@${c}"
-			/opt/onesender/onesender-x86_64 -c "/opt/onesender/config_${c}.yaml" --update
-			sudo systemctl start "onesender@${c}"
-			sleep 1
+			if [ -f "/opt/onesender/config_${c}.yaml" ]; then
+				echo "config_${c}.yaml"
+				echo "LOCAL_VERSION=2.0.0" > $FILEVERSION
+
+				sudo systemctl stop "onesender@${c}"
+				/opt/onesender/onesender-x86_64 -c "/opt/onesender/config_${c}.yaml" --update
+				sudo systemctl start "onesender@${c}"
+				sleep 1
+			fi
 		done
 
 
