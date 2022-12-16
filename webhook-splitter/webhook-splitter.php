@@ -1,11 +1,36 @@
 <?php
-
 /**
  * Webhook Splitter
  * Digunakan untuk memecah request webhook ke beberapa layanan
  *  
  * @version 1.0.0
  */
+
+/**
+ * Ubah kode dari sini
+ * ==============================================================
+ */
+
+
+$links = [
+    'https://enqjuyfgaqk1t.x.pipedream.net/',
+    'https://enqjuyfgaqk1t.x.pipedream.net/2',
+];
+
+$config = [
+    'ignore_outbox'         => true, // apakah pesan outbox dikirim?
+    'ignore_status'         => true, // apaka status pengiriman dikirim?
+    'ignore_group'          => true, // apakah pesan dari group dikirim?
+    'ignore_raw_message'    => true, // apakah pesan raw message dikirim?
+];
+
+/**
+ * Selesai di sini
+ * ==============================================================
+ */
+
+
+
 final class WebhookSplitter {
 
     protected $links = [];
@@ -129,26 +154,5 @@ final class WebhookSplitter {
     }
 }
 
-/**
- * Ubah kode dari sini
- * ==============================================================
- */
-
-
-$links = [
-    'https://enqjuyfgaqk1t.x.pipedream.net/',
-    'https://enqjuyfgaqk1t.x.pipedream.net/2',
-];
-
-$config = [
-    'ignore_outbox'         => true, // apakah pesan outbox dikirim?
-    'ignore_status'         => true, // apaka status pengiriman dikirim?
-    'ignore_group'          => true, // apakah pesan dari group dikirim?
-    'ignore_raw_message'    => true, // apakah pesan raw message dikirim?
-];
-
-/**
- * Selesai di sini
- */
 echo WebhookSplitter::make($links, $config)
         ->dispatch();
