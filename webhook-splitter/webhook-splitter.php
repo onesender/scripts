@@ -11,7 +11,6 @@
  * ==============================================================
  */
 
-
 $links = [
     'https://enqjuyfgaqk1t.x.pipedream.net/',
     'https://enqjuyfgaqk1t.x.pipedream.net/2',
@@ -23,7 +22,6 @@ $config = [
     'ignore_group'          => true, // apakah pesan dari group diabaikan atau dikirim?
     'ignore_raw_message'    => true, // apakah pesan raw message diabaikan atau dikirim?
 ];
-
 /**
  * Selesai di sini
  * ==============================================================
@@ -92,7 +90,7 @@ final class WebhookSplitter {
 
         $headers = [
             'With-Splitter: yes',
-            'Content-Type: application/json',
+            // 'Content-Type: application/json',
         ];
         
         $allowedHeaders = ['Onesender-Key', 'Api-Key', 'Token', 'X-Api-Key', 'Authorization', 'Content-Type'];
@@ -116,7 +114,6 @@ final class WebhookSplitter {
                 CURLOPT_SSL_VERIFYHOST  => false,
                 CURLOPT_SSL_VERIFYPEER  => false,
                 CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST   => 'POST',
                 CURLOPT_POSTFIELDS      => json_encode($req),
                 CURLOPT_HTTPHEADER      => $headers,
             ));
