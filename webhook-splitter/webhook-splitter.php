@@ -3,7 +3,7 @@
  * Webhook Splitter
  * Digunakan untuk memecah request webhook ke beberapa layanan
  *  
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -89,8 +89,12 @@ final class WebhookSplitter {
             unset($req['message_raw']);
         }
 
-        $headers = ['With-Splitter: yes'];
-        $allowedHeaders = ['Onesender-Key', 'Api-Key', 'Token', 'X-Api-Key', 'Authorization'];
+        $headers = [
+            'With-Splitter: yes',
+            'Content-Type: application/json',
+        ];
+        
+        $allowedHeaders = ['Onesender-Key', 'Api-Key', 'Token', 'X-Api-Key', 'Authorization', 'Content-Type'];
 
         foreach(apache_request_headers() as $key => $value) {
             if (in_array($key, $allowedHeaders)) {
