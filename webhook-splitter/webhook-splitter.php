@@ -22,6 +22,7 @@ $config = [
     'ignore_status'         => true, // apaka status pengiriman diabaikan atau dikirim?
     'ignore_group'          => true, // apakah pesan dari group diabaikan atau dikirim?
     'ignore_raw_message'    => true, // apakah pesan raw message diabaikan atau dikirim?
+];
 
 /**
  * Selesai di sini
